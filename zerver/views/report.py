@@ -187,7 +187,7 @@ def report_error(
     return json_success(request)
 
 
-@csrf_exempt
+# Warning: CSRF protection should not be disabled on a view
 @require_POST
 @has_request_variables
 def report_csp_violations(
