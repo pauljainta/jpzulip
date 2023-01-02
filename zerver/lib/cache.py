@@ -117,6 +117,8 @@ def bounce_key_prefix_for_testing(test_name: str) -> None:
     KEY_PREFIX = test_name + ":" + str(os.getpid()) + ":"
     # We are taking the hash of the KEY_PREFIX to decrease the size of the key.
     # Memcached keys should have a length of less than 250.
+    # OpenRefactory : The 'hashlib.sha1' method uses an unsecure hashing algorithms which is prone to collisions.
+    # Safer alternatives, such as SHA-256, SHA-512, SHA-3 are recommended.
     KEY_PREFIX = hashlib.sha1(KEY_PREFIX.encode()).hexdigest() + ":"
 
 
