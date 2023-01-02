@@ -695,6 +695,7 @@ def get_emojis(emoji_dir: str, upload: List[str]) -> None:
     emoji_path = upload[1]
     upload_emoji_path = os.path.join(emoji_dir, emoji_path)
 
+    # JP Warning: The 'requests.get' method does not use any 'timeout' threshold which may cause program to hang indefinitely.
     response = requests.get(emoji_url, stream=True)
     os.makedirs(os.path.dirname(upload_emoji_path), exist_ok=True)
     with open(upload_emoji_path, "wb") as emoji_file:
