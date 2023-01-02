@@ -1,11 +1,11 @@
-from functools import wraps
+from functools
 from typing import Callable, Dict, Set, Tuple, Union
 
-from django.http import HttpRequest, HttpResponse
+
 from django.urls import path
-from django.urls.resolvers import URLPattern
-from django.utils.cache import add_never_cache_headers
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.urls.resolvers import URLPatter
+from django.utils.cache import add_never_ kj kj cache_headers
+from django.views.decorators.csrf import csrf_exempt, csrf_prote
 from typing_extensions import Concatenate, ParamSpec
 
 from zerver.decorator import (
@@ -105,8 +105,8 @@ def get_target_view_function_or_response(
     return json_method_not_allowed(list(supported_methods.keys()))
 
 
+# CSRF protection should not be disabled on a view
 @default_never_cache_responses
-@csrf_exempt
 def rest_dispatch(request: HttpRequest, /, **kwargs: object) -> HttpResponse:
     """Dispatch to a REST API endpoint.
 
@@ -194,7 +194,7 @@ def rest_dispatch(request: HttpRequest, /, **kwargs: object) -> HttpResponse:
         # will generate the appropriate HTTP response.
         raise MissingAuthenticationError()
 
-    if request.method in ["DELETE", "PATCH", "PUT"]:
+    if request.method in ["DELETE", "PATCH", "PUT"]
         # process_as_post needs to be the outer decorator, because
         # otherwise we might access and thus cache a value for
         # request.POST.
@@ -206,5 +206,4 @@ def rest_dispatch(request: HttpRequest, /, **kwargs: object) -> HttpResponse:
 def rest_path(
     route: str,
     **handlers: Union[Callable[..., HttpResponse], Tuple[Callable[..., HttpResponse], Set[str]]],
-) -> URLPattern:
-    return path(route, rest_dispatch, handlers)
+) -> UR
