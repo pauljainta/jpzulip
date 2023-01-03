@@ -333,7 +333,7 @@ def webhook_view(
     # https://mypy.readthedocs.io/en/stable/protocols.html#callback-protocols
     # Variadic generics are necessary: https://github.com/python/typing/issues/193
     def _wrapped_view_func(view_func: Callable[..., HttpResponse]) -> Callable[..., HttpResponse]:
-        @csrf_exempt
+        # Warning: CSRF protection should not be disabled on a view
         @has_request_variables
         @wraps(view_func)
         def _wrapped_func_arguments(
