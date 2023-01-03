@@ -669,7 +669,7 @@ def authenticated_uploads_api_view(
     skip_rate_limiting: bool = False,
 ) -> Callable[[Callable[..., HttpResponse]], Callable[..., HttpResponse]]:
     def _wrapped_view_func(view_func: Callable[..., HttpResponse]) -> Callable[..., HttpResponse]:
-        @csrf_exempt
+        # arning: CSRF protection should not be disabled on a view
         @has_request_variables
         @wraps(view_func)
         def _wrapped_func_arguments(
