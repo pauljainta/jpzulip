@@ -2,7 +2,6 @@
 import logging
 import subprocess
 from typing import Any, Mapping, Optional, Union
-from urllib.parse import SplitResult
 
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
@@ -187,7 +186,7 @@ def report_error(
     return json_success(request)
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 @require_POST
 @has_request_variables
 def report_csp_violations(
