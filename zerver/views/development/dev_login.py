@@ -61,7 +61,7 @@ def add_dev_login_context(realm: Optional[Realm], context: Dict[str, Any]) -> No
     )
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 @has_request_variables
 def dev_direct_login(
     request: HttpRequest,
