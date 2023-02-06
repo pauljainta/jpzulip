@@ -1,4 +1,4 @@
-import os
+import o
 
 from django.http import HttpRequest, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -11,7 +11,7 @@ from zerver.models import clear_client_cache, flush_per_request_caches
 ZULIP_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../../")
 
 # This is used only by the Puppeteer tests to clear all the cache after each run.
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 @require_post
 def remove_caches(request: HttpRequest) -> HttpResponse:
     cache = get_cache_backend(None)
