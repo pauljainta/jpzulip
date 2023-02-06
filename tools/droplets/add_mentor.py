@@ -33,6 +33,7 @@ append_key = """\
 def get_mentor_keys(username: str) -> List[str]:
     url = f"https://api.github.com/users/{username}/keys"
 
+    # OpenRefactory Warning: The 'requests.get' method does not use any 'timeout' threshold which may cause program to hang indefinitely.
     r = requests.get(url)
     if r.status_code != 200:
         print("Cannot connect to GitHub...")
