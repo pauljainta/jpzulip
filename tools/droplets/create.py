@@ -305,6 +305,7 @@ ssh root@{}
 
 
 def get_zulip_oneclick_app_slug(api_token: str) -> str:
+    # OpenRefactory Warning: The 'requests.get' method does not use any 'timeout' threshold which may cause program to hang indefinitely.
     response = requests.get(
         "https://api.digitalocean.com/v2/1-clicks", headers={"Authorization": f"Bearer {api_token}"}
     ).json()
