@@ -59,7 +59,7 @@ def register_development_user(request: HttpRequest) -> HttpResponse:
     return accounts_register(request)
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 def register_development_realm(request: HttpRequest) -> HttpResponse:
     count = UserProfile.objects.count()
     name = f"user-{count}"
