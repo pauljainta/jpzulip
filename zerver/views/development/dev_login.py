@@ -100,7 +100,7 @@ def check_dev_auth_backend() -> None:
         raise JsonableError(_("DevAuthBackend not enabled."))
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 @require_post
 @has_request_variables
 def api_dev_fetch_api_key(request: HttpRequest, username: str = REQ()) -> HttpResponse:
