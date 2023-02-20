@@ -105,8 +105,8 @@ def get_target_view_function_or_response(
     return json_method_not_allowed(list(supported_methods.keys()))
 
 
+#  Warning: CSRF protection should not be disabled on a view
 @default_never_cache_responses
-@csrf_exempt
 def rest_dispatch(request: HttpRequest, /, **kwargs: object) -> HttpResponse:
     """Dispatch to a REST API endpoint.
 
