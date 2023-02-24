@@ -138,7 +138,7 @@ def api_dev_fetch_api_key(request: HttpRequest, username: str = REQ()) -> HttpRe
     return json_success(request, data={"api_key": api_key, "email": user_profile.delivery_email})
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 def api_dev_list_users(request: HttpRequest) -> HttpResponse:
     check_dev_auth_backend()
 
