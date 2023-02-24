@@ -36,7 +36,7 @@ def generate_demo_realm_name() -> str:
     return demo_realm_name
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 def register_development_user(request: HttpRequest) -> HttpResponse:
     realm = get_realm_from_request(request)
     if realm is None:
