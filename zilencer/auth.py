@@ -108,8 +108,8 @@ def authenticated_remote_server_view(
     return _wrapped_view_func
 
 
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 @default_never_cache_responses
-@csrf_exempt
 def remote_server_dispatch(request: HttpRequest, /, **kwargs: Any) -> HttpResponse:
     result = get_target_view_function_or_response(request, kwargs)
     if isinstance(result, HttpResponse):
