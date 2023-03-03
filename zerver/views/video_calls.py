@@ -162,7 +162,7 @@ def make_zoom_video_call(request: HttpRequest, user: UserProfile) -> HttpRespons
     return json_success(request, data={"url": res.json()["join_url"]})
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 @require_POST
 @has_request_variables
 def deauthorize_zoom_user(request: HttpRequest) -> HttpResponse:
