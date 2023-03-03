@@ -50,6 +50,7 @@ class Command(BaseCommand):
     help = "Runs a queue processing worker"
 
     def handle(self, *args: Any, **options: Any) -> None:
+        # OpenRefactory Warning: Logger configuration can lead to security vulnerabilities.
         logging.basicConfig()
         logger = logging.getLogger("process_queue")
 
